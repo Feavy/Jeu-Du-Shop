@@ -13,14 +13,14 @@ public class Item {
         return type;
     }
 
-    public void add(Item item) throws DifferentItemsException {
-        if(!sameTypeAs(item))
+    void add(Item item) throws DifferentItemsException {
+        if(notSameTypeAs(item))
             throw new DifferentItemsException();
         this.quantity += item.quantity;
     }
 
-    public boolean remove(Item item) throws DifferentItemsException{
-        if(!sameTypeAs(item))
+    boolean remove(Item item) throws DifferentItemsException{
+        if(notSameTypeAs(item))
             throw new DifferentItemsException();
 
         if(quantity < item.quantity)
@@ -30,13 +30,20 @@ public class Item {
         return true;
     }
 
-    public boolean isMoreOrEqualsThan(Item item) throws DifferentItemsException{
-        if(!sameTypeAs(item))
+    boolean isMoreOrEqualsThan(Item item) throws DifferentItemsException{
+        if(notSameTypeAs(item))
             throw new DifferentItemsException();
         return quantity >= item.quantity;
     }
 
-    public boolean sameTypeAs(Item item) {
+    private boolean notSameTypeAs(Item item) {
         return type == item.getType();
+    }
+
+    @Override
+    public String toString() {
+        if(quantity <= 1)
+            return quantity+" x "+getType().getName();
+        return quantity+" x "+getType().getPluralName();
     }
 }

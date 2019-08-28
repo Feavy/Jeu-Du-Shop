@@ -1,9 +1,5 @@
 package fr.feavy.jeuDuShop;
 
-import fr.feavy.jeuDuShop.item.ItemType;
-import fr.feavy.jeuDuShop.scene.TitleScreenScene;
-import fr.feavy.jeuDuShop.ui.GamePanel;
-
 import javax.swing.*;
 
 public class Main {

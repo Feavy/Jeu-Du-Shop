@@ -6,6 +6,7 @@ import fr.feavy.jeuDuShop.event.EventManager;
 import fr.feavy.jeuDuShop.item.Item;
 import fr.feavy.jeuDuShop.item.ItemType;
 import fr.feavy.jeuDuShop.listener.EventListener;
+import fr.feavy.jeuDuShop.item.ItemSet;
 import fr.feavy.jeuDuShop.utils.Settings;
 
 import java.util.ArrayList;
@@ -14,16 +15,17 @@ import java.util.List;
 import java.util.Random;
 
 public class LootGenerator implements EventListener {
-    private final List<Loot> currentLoots = new ArrayList<>();
+    private final List<ItemSet> currentLoots = new ArrayList<>();
     private final Random random = new Random();
 
     private int counter = 0;
 
     public LootGenerator() {
         EventManager.addEventListener(this);
+        generateLoots(5, 5);
     }
 
-    public List<Loot> getCurrentLoots() {
+    public List<ItemSet> getCurrentLoots() {
         return Collections.unmodifiableList(currentLoots);
     }
 
@@ -34,11 +36,12 @@ public class LootGenerator implements EventListener {
         EventManager.callEvent(new Event(EventID.LOOT_GENERATED));
     }
 
-    private Loot generateLoot(int itemAmount) {
+    private ItemSet generateLoot(int itemAmount) {
+        ItemSet loot = new ItemSet();
         List<Item> items = new ArrayList<>();
         for(int i = 0; i < itemAmount; i++)
-            items.add(getRandomItem());
-        return new Loot(items);
+            loot.addItem(getRandomItem());
+        return loot;
     }
 
     private Item getRandomItem() {
@@ -49,7 +52,11 @@ public class LootGenerator implements EventListener {
             if(number >= randomNumber)
                 return new Item(itemType, 1);
         }
-        return null;
+        return new Item(ItemType.WOOD_LOG, 1);
+    }
+
+    public int getRemeaningTime() {
+        return Settings.LOOT_GENERATION_COOLDOWN_SECONDS - counter;
     }
 
     @Override
@@ -57,7 +64,7 @@ public class LootGenerator implements EventListener {
         if(event.getId() == EventID.TICK) {
             counter ++;
             if(counter >= Settings.LOOT_GENERATION_COOLDOWN_SECONDS) {
-                generateLoots(3, 5);
+                generateLoots(5, 5);
                 counter = 0;
             }
         }

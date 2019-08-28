@@ -4,24 +4,20 @@ import fr.feavy.jeuDuShop.event.Event;
 import fr.feavy.jeuDuShop.event.EventID;
 import fr.feavy.jeuDuShop.event.EventManager;
 
-class GameRunnable implements Runnable {
-    private static final GameRunnable INSTANCE = new GameRunnable();
-
-    static {
-        new Thread(INSTANCE).start();
-    }
+public class GameRunnable implements Runnable {
+    public GameRunnable() {}
 
     private int timer = 0;
 
     @Override
     public void run() {
-        while (true) {
-            try {
+        try {
+            while (true) {
                 Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+                EventManager.callEvent(new Event(EventID.TICK));
             }
-            EventManager.callEvent(new Event(EventID.TICK));
+        }catch(InterruptedException e) {
+            e.printStackTrace();
         }
     }
 

@@ -1,17 +1,15 @@
-package fr.feavy.jeuDuShop.player;
+package fr.feavy.jeuDuShop.item;
 
 import fr.feavy.jeuDuShop.item.Item;
 import fr.feavy.jeuDuShop.item.ItemType;
 
-import java.util.EnumMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
-public class Inventory {
-    private final Map<ItemType, Item> itemMap = new EnumMap<ItemType, Item>(ItemType.class);
+public class ItemSet {
+    private final Map<ItemType, Item> itemMap = new EnumMap<>(ItemType.class);
 
-    public void addItems(List<Item> items) {
-        for(Item item : items)
+    public void addItems(ItemSet itemSet) {
+        for(Item item : itemSet.getItems())
             addItem(item);
     }
 
@@ -34,5 +32,9 @@ public class Inventory {
             return false;
 
         return itemMap.get(item.getType()).isMoreOrEqualsThan(item);
+    }
+
+    public Collection<Item> getItems() {
+        return itemMap.values();
     }
 }

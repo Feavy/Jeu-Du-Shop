@@ -1,9 +1,27 @@
 package fr.feavy.jeuDuShop.player;
 
-public class Player {
-    private final Inventory inventory = new Inventory();
+import fr.feavy.jeuDuShop.event.Event;
+import fr.feavy.jeuDuShop.event.EventManager;
+import fr.feavy.jeuDuShop.event.LootCollectedEvent;
+import fr.feavy.jeuDuShop.item.ItemSet;
+import fr.feavy.jeuDuShop.listener.EventListener;
 
-    public Inventory getInventory() {
+public class Player implements EventListener {
+    private final ItemSet inventory = new ItemSet();
+
+    public ItemSet getInventory() {
         return inventory;
+    }
+
+    public Player() {
+        EventManager.addEventListener(this);
+    }
+
+
+    @Override
+    public void onEvent(Event event) {
+        if(event instanceof LootCollectedEvent) {
+            getInventory().addItems(((LootCollectedEvent) event).getLoot());
+        }
     }
 }
