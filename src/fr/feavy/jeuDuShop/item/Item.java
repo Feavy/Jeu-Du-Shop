@@ -2,11 +2,11 @@ package fr.feavy.jeuDuShop.item;
 
 public class Item {
     private final ItemType type;
-    private int quantity;
+    private int amount;
 
-    public Item(ItemType type, int quantity) {
+    public Item(ItemType type, int amount) {
         this.type = type;
-        this.quantity = quantity;
+        this.amount = amount;
     }
 
     public ItemType getType() {
@@ -16,34 +16,34 @@ public class Item {
     void add(Item item) throws DifferentItemsException {
         if(notSameTypeAs(item))
             throw new DifferentItemsException();
-        this.quantity += item.quantity;
+        this.amount += item.amount;
     }
 
     boolean remove(Item item) throws DifferentItemsException{
         if(notSameTypeAs(item))
             throw new DifferentItemsException();
 
-        if(quantity < item.quantity)
+        if(amount < item.amount)
             return false;
 
-        this.quantity -= item.quantity;
+        this.amount -= item.amount;
         return true;
     }
 
     boolean isMoreOrEqualsThan(Item item) throws DifferentItemsException{
         if(notSameTypeAs(item))
             throw new DifferentItemsException();
-        return quantity >= item.quantity;
+        return amount >= item.amount;
     }
 
     private boolean notSameTypeAs(Item item) {
-        return type == item.getType();
+        return type != item.getType();
     }
 
     @Override
     public String toString() {
-        if(quantity <= 1)
-            return quantity+" x "+getType().getName();
-        return quantity+" x "+getType().getPluralName();
+        if(amount <= 1)
+            return amount +" x "+getType().getName();
+        return amount +" x "+getType().getPluralName();
     }
 }

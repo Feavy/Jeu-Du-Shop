@@ -2,25 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="039831f4-58cd-4120-9ad4-056eaa92f9bd" name="Default Changelist" comment="Scene de loot terminée">
-      <change afterPath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/event/LootCollectedEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/ui/LootItem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/JeuDuShop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/JeuDuShop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/craft/Craft.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/craft/Craft.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/craft/CraftManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/craft/CraftManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/event/EventID.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/event/EventID.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/item/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/item/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/item/ItemType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/item/ItemType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/loot/Loot.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/loot/LootGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/loot/LootGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/player/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/item/ItemSet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/player/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/player/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/runnable/GameRunnable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/runnable/GameRunnable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/scene/LootScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/ui/scene/LootScene.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/scene/Scene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/ui/scene/Scene.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/scene/TitleScreenScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/ui/scene/TitleScreenScene.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/ui/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/ui/GamePanel.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -45,6 +28,7 @@
   </component>
   <component name="ProjectId" id="1Q1ST1JrhAIFBtPR3fp42es4OG1" />
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
