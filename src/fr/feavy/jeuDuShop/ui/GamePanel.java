@@ -12,11 +12,18 @@ public class GamePanel extends JPanel {
 
     private JButton collectButton = new StyledButton("RECOLTE").setPadding(20, 0, 20, 0),
                     craftButton = new StyledButton("CRAFT").setPadding(20, 0, 20, 0),
-                    shopButton = new StyledButton("SHOP").setPadding(20, 0, 20, 0);
+                    shopButton = new StyledButton("SHOP").setPadding(20, 0, 20, 0),
+                    inventoryButton = new StyledButton("Inventaire").setPadding(5);
+
+    private JPanel northPanel = new JPanel();
 
     public GamePanel(Scene currentScene) {
         super(new BorderLayout());
         setBackground(Color.WHITE);
+
+        northPanel.setLayout(new BorderLayout());
+        northPanel.add(inventoryButton, BorderLayout.EAST);
+        add(northPanel, BorderLayout.NORTH);
 
         JPanel southPanel = new JPanel(new GridLayout(1, 3));
 
@@ -39,14 +46,14 @@ public class GamePanel extends JPanel {
             remove(activeScene);
         }
         if(activeTitle != null) {
-            remove(activeTitle);
+            northPanel.remove(activeTitle);
         }
         this.activeScene = scene;
         activeScene.onCreate();
         add(activeScene, BorderLayout.CENTER);
         this.activeTitle = new JLabel("<html><h1>"+scene.getTitle()+"</h1></html>");
         this.activeTitle.setHorizontalAlignment(SwingConstants.CENTER);
-        add(activeTitle, BorderLayout.NORTH);
+        northPanel.add(activeTitle, BorderLayout.SOUTH);
         repaint();
         revalidate();
     }

@@ -21,6 +21,7 @@ public class Player implements EventListener {
     @Override
     public void onEvent(Event event) {
         if(event instanceof LootCollectedEvent) {
+            System.out.println("Items collected : "+((LootCollectedEvent) event).getLoot());
             getInventory().addItems(((LootCollectedEvent) event).getLoot());
         }
     }

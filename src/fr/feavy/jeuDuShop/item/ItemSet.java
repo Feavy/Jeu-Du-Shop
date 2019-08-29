@@ -37,4 +37,12 @@ public class ItemSet {
     public Collection<Item> getItems() {
         return itemMap.values();
     }
+
+    @Override
+    public String toString() {
+        StringBuilder rep = new StringBuilder();
+        for(Item i : getItems())
+            rep.append(i.toString()+" ");
+        return rep.toString();
+    }
 }

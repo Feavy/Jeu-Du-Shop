@@ -29,12 +29,18 @@ public class LootScene extends Scene implements EventListener, Consumer<LootItem
         add(remainingTimeLabel, BorderLayout.SOUTH);
 
         EventManager.addEventListener(this);
-        if(!JeuDuShop.get().isLooted())
-            updateLoots();
+
+        updateLoots();
         updateTimer();
     }
 
     private void updateLoots() {
+        if(JeuDuShop.get().isLooted()) {
+            JLabel feedback = new JLabel("<html><h3>Les loots ont déjà été collectés.</h3></html>");
+            feedback.setHorizontalAlignment(SwingConstants.CENTER);
+            centerPanel.add(feedback);
+            return;
+        }
         centerPanel.removeAll();
         for(ItemSet loot : JeuDuShop.get().getLootGenerator().getCurrentLoots()) {
             centerPanel.add(new LootItem(loot, this));
@@ -77,6 +83,7 @@ public class LootScene extends Scene implements EventListener, Consumer<LootItem
         centerPanel.repaint();
         centerPanel.revalidate();
         EventManager.callEvent(new LootCollectedEvent(lootItem.getLoot()));
+        updateLoots();
         JOptionPane.showMessageDialog(this, "Les ressources ont été collectées !", "Ressources collectées", JOptionPane.INFORMATION_MESSAGE);
     }
 }

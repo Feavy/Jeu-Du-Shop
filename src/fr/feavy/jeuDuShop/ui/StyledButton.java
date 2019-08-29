@@ -19,4 +19,8 @@ public class StyledButton extends JButton {
         setBorder(new CompoundBorder(lineBorder, new EmptyBorder(top, left, bottom, right)));
         return this;
     }
+
+    public StyledButton setPadding(int padding) {
+        return setPadding(padding, padding, padding, padding);
+    }
 }
