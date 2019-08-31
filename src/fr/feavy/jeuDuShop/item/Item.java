@@ -40,6 +40,10 @@ public class Item {
         return type != item.getType();
     }
 
+    public boolean isEmpty() {
+        return amount == 0;
+    }
+
     @Override
     public String toString() {
         if(amount <= 1)

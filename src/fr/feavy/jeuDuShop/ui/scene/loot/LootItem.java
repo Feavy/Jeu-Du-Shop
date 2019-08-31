@@ -1,14 +1,17 @@
-package fr.feavy.jeuDuShop.ui;
+package fr.feavy.jeuDuShop.ui.scene.loot;
 
 import fr.feavy.jeuDuShop.item.Item;
 import fr.feavy.jeuDuShop.item.ItemSet;
+import fr.feavy.jeuDuShop.ui.StyledButton;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.function.Consumer;
+import java.util.List;
 
 public class LootItem extends JPanel {
     private final ItemSet loot;
@@ -20,15 +23,15 @@ public class LootItem extends JPanel {
     public LootItem(ItemSet loot, Consumer<LootItem> collectCallback) {
         super(new BorderLayout());
         this.loot = loot;
-        add(centerPanel, BorderLayout.CENTER);
-        add(rightPanel, BorderLayout.EAST);
         setBorder(new EmptyBorder(20, 0, 20, 0));
+        add(rightPanel, BorderLayout.EAST);
+        add(centerPanel, BorderLayout.CENTER);
 
         centerPanel.setLayout(new GridLayout(2, 3));
-        for(Item item : loot.getItems())
+        for(Item item : loot)
             centerPanel.add(new JLabel(item.toString()));
 
-        collectButton.addActionListener(e -> collectCallback.accept(LootItem.this));
+        collectButton.addActionListener(e -> collectCallback.accept(this));
         collectButton.setPadding(5, 10, 5, 10);
         rightPanel.add(collectButton);
     }

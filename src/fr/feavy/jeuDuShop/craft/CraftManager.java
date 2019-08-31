@@ -5,9 +5,8 @@ import fr.feavy.jeuDuShop.item.Item;
 import fr.feavy.jeuDuShop.item.ItemType;
 import fr.feavy.jeuDuShop.item.ItemSet;
 
-import java.util.EnumMap;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class CraftManager {
     private final static Map<ItemType, Craft> CRAFTS = new EnumMap<>(ItemType.class);
@@ -16,8 +15,12 @@ public class CraftManager {
         CRAFTS.put(craft.getResultItem().getType(), craft);
     }
 
-    public static Craft[] getRealisableCrafts(@NotNull ItemSet inventory) {
-        return (Craft[]) CRAFTS.values().stream().filter(craft -> craft.isRealizable(inventory)).toArray();
+    public static Collection<Craft> getAllCrafts() {
+        return CRAFTS.values();
+    }
+
+    public static List<Craft> getRealisableCrafts(@NotNull ItemSet inventory) {
+        return CRAFTS.values().stream().filter(craft -> craft.isRealizable(inventory)).collect(Collectors.toList());   // TODO enlever le !
     }
 
     public static boolean canCraft(@NotNull ItemType itemType, @NotNull ItemSet inventory) {

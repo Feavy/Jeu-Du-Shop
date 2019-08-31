@@ -1,18 +1,15 @@
-package fr.feavy.jeuDuShop.ui.scene;
+package fr.feavy.jeuDuShop.ui.scene.loot;
 
 import fr.feavy.jeuDuShop.JeuDuShop;
 import fr.feavy.jeuDuShop.event.Event;
-import fr.feavy.jeuDuShop.event.EventID;
 import fr.feavy.jeuDuShop.event.EventManager;
 import fr.feavy.jeuDuShop.event.LootCollectedEvent;
 import fr.feavy.jeuDuShop.listener.EventListener;
 import fr.feavy.jeuDuShop.item.ItemSet;
-import fr.feavy.jeuDuShop.ui.LootItem;
+import fr.feavy.jeuDuShop.ui.scene.Scene;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.function.Consumer;
 
 public class LootScene extends Scene implements EventListener, Consumer<LootItem> {

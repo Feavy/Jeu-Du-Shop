@@ -11,7 +11,7 @@ public abstract class Scene extends JPanel {
         this(title, new FlowLayout());
     }
 
-    Scene(String title, LayoutManager layout) {
+    public Scene(String title, LayoutManager layout) {
         super(layout);
         this.title = title;
         setBorder(new EmptyBorder(5, 5, 5, 5));

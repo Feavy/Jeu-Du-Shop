@@ -2,12 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="039831f4-58cd-4120-9ad4-056eaa92f9bd" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/event/CraftRealizedEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/ui/scene/InventoryScene.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/ui/scene/craft/CraftItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/ui/scene/craft/CraftScene.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/JeuDuShop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/JeuDuShop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/craft/Craft.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/craft/Craft.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/craft/CraftManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/craft/CraftManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/event/EventID.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/event/EventID.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/item/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/item/Item.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/item/ItemSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/item/ItemSet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/player/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/player/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/ui/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/ui/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/ui/StyledButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/ui/StyledButton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/ui/scene/LootScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/ui/scene/LootScene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/ui/LootItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/ui/scene/loot/LootItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/ui/scene/LootScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/ui/scene/loot/LootScene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/ui/scene/Scene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/ui/scene/Scene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/ui/scene/TitleScreenScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/ui/scene/TitleScreenScene.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -92,6 +103,7 @@
       <workItem from="1566996605409" duration="7255000" />
       <workItem from="1567004025133" duration="144000" />
       <workItem from="1567011416655" duration="6857000" />
+      <workItem from="1567245050256" duration="8821000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed Item">
       <created>1567075902502</created>
@@ -100,7 +112,14 @@
       <option name="project" value="LOCAL" />
       <updated>1567075902502</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Added Inventory button and message in LootScene">
+      <created>1567084730434</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1567084730434</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -122,6 +141,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Scene de loot terminée" />
     <MESSAGE value="Fixed Item" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed Item" />
+    <MESSAGE value="Added Inventory button and message in LootScene" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Inventory button and message in LootScene" />
   </component>
 </project>

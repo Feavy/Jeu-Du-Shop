@@ -5,15 +5,15 @@ import fr.feavy.jeuDuShop.item.Item;
 import fr.feavy.jeuDuShop.item.ItemSet;
 
 public class Craft {
-    private final Item[] components;
     private final Item resultItem;
+    private final ItemSet components;
 
     Craft(Item[] components, Item resultItem) {
-        this.components = components;
         this.resultItem = resultItem;
+        this.components = new ItemSet(components);
     }
 
-    public Item[] getComponents() {
+    public ItemSet getComponents() {
         return components;
     }
 
@@ -21,11 +21,7 @@ public class Craft {
         return resultItem;
     }
 
-    boolean isRealizable(@NotNull ItemSet inventory) {
-        for(Item component : components) {
-            if(!inventory.hasItem(component))
-                return false;
-        }
-        return true;
+    public boolean isRealizable(@NotNull ItemSet inventory) {
+        return inventory.hasItems(components);
     }
 }
