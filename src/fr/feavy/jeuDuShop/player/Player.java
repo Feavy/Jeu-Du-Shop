@@ -2,19 +2,19 @@ package fr.feavy.jeuDuShop.player;
 
 import fr.feavy.jeuDuShop.craft.Craft;
 import fr.feavy.jeuDuShop.craft.CraftManager;
-import fr.feavy.jeuDuShop.event.CraftRealizedEvent;
-import fr.feavy.jeuDuShop.event.Event;
-import fr.feavy.jeuDuShop.event.EventManager;
-import fr.feavy.jeuDuShop.event.LootCollectedEvent;
+import fr.feavy.jeuDuShop.event.*;
 import fr.feavy.jeuDuShop.item.Item;
 import fr.feavy.jeuDuShop.item.ItemSet;
+import fr.feavy.jeuDuShop.item.SellingItem;
 import fr.feavy.jeuDuShop.listener.EventListener;
 
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
 
 public class Player implements EventListener {
-    private final ItemSet inventory = new ItemSet();
+    private final ItemSet<Item> inventory = new ItemSet();
+    private final ItemSet<SellingItem> sellingItemSet = new ItemSet();
 
     public Player() {
         EventManager.addEventListener(this);
@@ -32,8 +32,20 @@ public class Player implements EventListener {
         inventory.removeItems(items);
     }
 
+    public void addSellingItem(SellingItem sellingItem) {
+        sellingItemSet.addItem(sellingItem);
+    }
+
+    public void removeSellingItem(SellingItem sellingItem) {
+        sellingItemSet.removeItem(sellingItem);
+    }
+
     public Collection<Item> getItems() {
         return inventory.getItems();
+    }
+
+    public Collection<SellingItem> getSellingItems() {
+        return sellingItemSet.getItems();
     }
 
     public List<Craft> getRealizableCrafts() {
@@ -46,7 +58,14 @@ public class Player implements EventListener {
 
     @Override
     public void onEvent(Event event) {
-        if(event instanceof LootCollectedEvent) {
+        if(event.getId() == EventID.TICK) {
+            Iterator<SellingItem> iterator = sellingItemSet.iterator();
+            while(iterator.hasNext()) {
+                SellingItem item = iterator.next();
+                if(item.sell())
+                    iterator.remove();
+            }
+        } if(event instanceof LootCollectedEvent) {
             System.out.println("Items collected : "+((LootCollectedEvent) event).getLoot());
             addItems(((LootCollectedEvent) event).getLoot());
         }else if(event instanceof CraftRealizedEvent) {

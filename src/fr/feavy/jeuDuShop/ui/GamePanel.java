@@ -4,6 +4,7 @@ import fr.feavy.jeuDuShop.ui.scene.InventoryScene;
 import fr.feavy.jeuDuShop.ui.scene.craft.CraftScene;
 import fr.feavy.jeuDuShop.ui.scene.loot.LootScene;
 import fr.feavy.jeuDuShop.ui.scene.Scene;
+import fr.feavy.jeuDuShop.ui.scene.shop.ShopScene;
 
 import javax.swing.*;
 import java.awt.*;
@@ -38,8 +39,9 @@ public class GamePanel extends JPanel {
         craftButton.addActionListener(e -> setNewScene(new CraftScene()));
         southPanel.add(craftButton);
 
-
+        shopButton.addActionListener(e -> setNewScene(new ShopScene()));
         southPanel.add(shopButton);
+
         add(southPanel, BorderLayout.SOUTH);
 
         setNewScene(currentScene);

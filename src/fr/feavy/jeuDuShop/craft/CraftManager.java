@@ -48,5 +48,11 @@ public class CraftManager {
                 },
                 new Item(ItemType.WOOD_PLANKS, 4))
         );
+        registerCraft(new Craft(
+                new Item[] {
+                        new Item(ItemType.WOOD_PLANKS, 6)
+                },
+                new Item(ItemType.WOOD_STAIRS, 3))
+        );
     }
 }

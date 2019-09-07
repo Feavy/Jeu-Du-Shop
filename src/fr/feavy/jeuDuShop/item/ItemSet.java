@@ -1,29 +1,28 @@
 package fr.feavy.jeuDuShop.item;
 
-import fr.feavy.jeuDuShop.item.Item;
-import fr.feavy.jeuDuShop.item.ItemType;
-
 import java.util.*;
 
-public class ItemSet implements  Iterable<Item>{
-    private final Map<ItemType, Item> itemMap = new EnumMap<>(ItemType.class);
+public class ItemSet<T extends Item> implements Iterable<T>{
+    private final Map<ItemType, T> itemMap = new EnumMap<>(ItemType.class);
 
     public ItemSet() {
     }
 
-    public ItemSet(Item[] items) {
-        for(Item item : items)
+    public ItemSet(T[] items) {
+        for(T item : items)
             addItem(item);
     }
 
-    public void addItems(ItemSet itemSet) {
-        for(Item item : itemSet)
+    public void addItems(ItemSet<T> itemSet) {
+        for(T item : itemSet)
             addItem(item);
     }
 
-    public void addItem(Item item) {
-        if(!itemMap.containsKey(item.getType()))
-            itemMap.put(item.getType(), new Item(item.getType(), 0));
+    public void addItem(T item) {
+        if(!itemMap.containsKey(item.getType())) {
+            itemMap.put(item.getType(), item);
+            return;
+        }
 
         itemMap.get(item.getType()).add(item);
     }
@@ -39,7 +38,7 @@ public class ItemSet implements  Iterable<Item>{
         return rep;
     }
 
-    public void removeItems(ItemSet items) {
+    public void removeItems(ItemSet<T> items) {
         for(Item item : items)
             removeItem(item);
     }
@@ -51,7 +50,7 @@ public class ItemSet implements  Iterable<Item>{
         return itemMap.get(item.getType()).isMoreOrEqualsThan(item);
     }
 
-    public boolean hasItems(ItemSet items) {
+    public boolean hasItems(ItemSet<T> items) {
         for(Item item : items)
             if(!hasItem(item))
                 return false;
@@ -67,11 +66,11 @@ public class ItemSet implements  Iterable<Item>{
     }
 
     @Override
-    public Iterator<Item> iterator() {
+    public Iterator<T> iterator() {
         return itemMap.values().iterator();
     }
 
-    public Collection<Item> getItems() {
+    public Collection<T> getItems() {
         return itemMap.values();
     }
 }

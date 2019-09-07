@@ -20,7 +20,7 @@ public class LootItem extends JPanel {
     private final JPanel centerPanel = new JPanel();
     private final JPanel rightPanel = new JPanel();
 
-    public LootItem(ItemSet loot, Consumer<LootItem> collectCallback) {
+    public LootItem(ItemSet<Item> loot, Consumer<LootItem> collectCallback) {
         super(new BorderLayout());
         this.loot = loot;
         setBorder(new EmptyBorder(20, 0, 20, 0));

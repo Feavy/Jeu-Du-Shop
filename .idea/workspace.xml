@@ -2,23 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="039831f4-58cd-4120-9ad4-056eaa92f9bd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/event/CraftRealizedEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/ui/scene/InventoryScene.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/ui/scene/craft/CraftItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/ui/scene/craft/CraftScene.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/item/SellingItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/player/Shop.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/ui/scene/shop/ShopItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/ui/scene/shop/ShopScene.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/JeuDuShop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/JeuDuShop.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/craft/Craft.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/craft/Craft.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/craft/CraftManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/craft/CraftManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/event/EventID.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/event/EventID.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/item/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/item/Item.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/item/ItemSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/item/ItemSet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/item/ItemType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/item/ItemType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/player/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/player/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/ui/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/ui/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/ui/LootItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/ui/scene/loot/LootItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/ui/scene/LootScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/ui/scene/loot/LootScene.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/ui/scene/Scene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/ui/scene/Scene.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/ui/scene/TitleScreenScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/ui/scene/TitleScreenScene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/ui/scene/loot/LootItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/feavy/jeuDuShop/ui/scene/loot/LootItem.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -104,6 +100,12 @@
       <workItem from="1567004025133" duration="144000" />
       <workItem from="1567011416655" duration="6857000" />
       <workItem from="1567245050256" duration="8821000" />
+      <workItem from="1567424787618" duration="154000" />
+      <workItem from="1567426369310" duration="292000" />
+      <workItem from="1567499788705" duration="1176000" />
+      <workItem from="1567576457598" duration="311000" />
+      <workItem from="1567759054384" duration="1407000" />
+      <workItem from="1567881740085" duration="628000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed Item">
       <created>1567075902502</created>

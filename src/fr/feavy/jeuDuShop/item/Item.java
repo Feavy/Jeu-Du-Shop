@@ -2,7 +2,7 @@ package fr.feavy.jeuDuShop.item;
 
 public class Item {
     private final ItemType type;
-    private int amount;
+    protected int amount;
 
     public Item(ItemType type, int amount) {
         this.type = type;
@@ -11,6 +11,10 @@ public class Item {
 
     public ItemType getType() {
         return type;
+    }
+
+    public int getDefaultSellPrice() {
+        return type.getSellPrice()*amount;
     }
 
     void add(Item item) throws DifferentItemsException {

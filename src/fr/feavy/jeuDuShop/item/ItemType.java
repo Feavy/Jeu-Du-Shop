@@ -8,7 +8,8 @@ public enum ItemType {
     GOLD("Lingot d'or", "Lingots d'or", 0.03f),
     DIAMOND("Diamant", "Diamants", 0.01f),
 
-    WOOD_PLANKS("Planche de bois", "Planches de bois", .25f/1f, 20);
+    WOOD_PLANKS("Planche de bois", "Planches de bois", .25f/1f, 20),
+    WOOD_STAIRS("Escalier en bois", "Escaliers en bois", 0f, 30);
 
     private final String name, pluralName;
     private final float rarity;
