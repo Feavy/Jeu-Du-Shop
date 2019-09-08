@@ -13,7 +13,7 @@ public class Craft {
         this.components = new ItemSet(components);
     }
 
-    public ItemSet<Item> getComponents() {
+    public ItemSet getComponents() {
         return components;
     }
 

@@ -46,4 +46,9 @@ public enum ItemType {
     public int getBuyPrice() {
         return buyPrice;
     }
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }

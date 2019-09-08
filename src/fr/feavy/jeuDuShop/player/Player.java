@@ -8,13 +8,14 @@ import fr.feavy.jeuDuShop.item.ItemSet;
 import fr.feavy.jeuDuShop.item.SellingItem;
 import fr.feavy.jeuDuShop.listener.EventListener;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
 public class Player implements EventListener {
-    private final ItemSet<Item> inventory = new ItemSet();
-    private final ItemSet<SellingItem> sellingItemSet = new ItemSet();
+    private final ItemSet inventory = new ItemSet();
+    private final List<SellingItem> sellingItems = new ArrayList();
 
     public Player() {
         EventManager.addEventListener(this);
@@ -33,11 +34,11 @@ public class Player implements EventListener {
     }
 
     public void addSellingItem(SellingItem sellingItem) {
-        sellingItemSet.addItem(sellingItem);
+        sellingItems.add(sellingItem);
     }
 
     public void removeSellingItem(SellingItem sellingItem) {
-        sellingItemSet.removeItem(sellingItem);
+        sellingItems.remove(sellingItem);
     }
 
     public Collection<Item> getItems() {
@@ -45,7 +46,7 @@ public class Player implements EventListener {
     }
 
     public Collection<SellingItem> getSellingItems() {
-        return sellingItemSet.getItems();
+        return new ArrayList<SellingItem>(sellingItems);
     }
 
     public List<Craft> getRealizableCrafts() {
@@ -59,7 +60,7 @@ public class Player implements EventListener {
     @Override
     public void onEvent(Event event) {
         if(event.getId() == EventID.TICK) {
-            Iterator<SellingItem> iterator = sellingItemSet.iterator();
+            Iterator<SellingItem> iterator = sellingItems.iterator();
             while(iterator.hasNext()) {
                 SellingItem item = iterator.next();
                 if(item.sell())

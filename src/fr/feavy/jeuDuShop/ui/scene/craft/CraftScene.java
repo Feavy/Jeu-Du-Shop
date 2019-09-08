@@ -36,7 +36,7 @@ public class CraftScene extends Scene implements DocumentListener, ActionListene
         nameField.getDocument().addDocumentListener(this);
         northPanel.add(nameField);
 
-        realizableCheckbox = new JCheckBox("Réalisables ?");
+        realizableCheckbox = new JCheckBox("Réalisables");
         realizableCheckbox.addActionListener(this);
         northPanel.add(realizableCheckbox);
 
@@ -100,7 +100,7 @@ public class CraftScene extends Scene implements DocumentListener, ActionListene
     }
 
     private void applyCurrentNameFilter() {
-        crafts = crafts.stream().filter(craft -> craft.getResultItem().getType().getName().contains(currentNameQuery)).collect(Collectors.toList());
+        crafts = crafts.stream().filter(craft -> craft.getResultItem().getType().getName().toLowerCase().contains(currentNameQuery.toLowerCase())).collect(Collectors.toList());
     }
 
     private void applyCurrentSelectedCraftsFilter() {

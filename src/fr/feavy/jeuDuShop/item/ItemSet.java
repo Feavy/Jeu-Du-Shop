@@ -2,23 +2,23 @@ package fr.feavy.jeuDuShop.item;
 
 import java.util.*;
 
-public class ItemSet<T extends Item> implements Iterable<T>{
-    private final Map<ItemType, T> itemMap = new EnumMap<>(ItemType.class);
+public class ItemSet implements Iterable<Item>{
+    private final Map<ItemType, Item> itemMap = new EnumMap<>(ItemType.class);
 
     public ItemSet() {
     }
 
-    public ItemSet(T[] items) {
-        for(T item : items)
+    public ItemSet(Item[] items) {
+        for(Item item : items)
             addItem(item);
     }
 
-    public void addItems(ItemSet<T> itemSet) {
-        for(T item : itemSet)
+    public void addItems(ItemSet itemSet) {
+        for(Item item : itemSet)
             addItem(item);
     }
 
-    public void addItem(T item) {
+    public void addItem(Item item) {
         if(!itemMap.containsKey(item.getType())) {
             itemMap.put(item.getType(), item);
             return;
@@ -38,7 +38,7 @@ public class ItemSet<T extends Item> implements Iterable<T>{
         return rep;
     }
 
-    public void removeItems(ItemSet<T> items) {
+    public void removeItems(ItemSet items) {
         for(Item item : items)
             removeItem(item);
     }
@@ -50,7 +50,7 @@ public class ItemSet<T extends Item> implements Iterable<T>{
         return itemMap.get(item.getType()).isMoreOrEqualsThan(item);
     }
 
-    public boolean hasItems(ItemSet<T> items) {
+    public boolean hasItems(ItemSet items) {
         for(Item item : items)
             if(!hasItem(item))
                 return false;
@@ -66,11 +66,11 @@ public class ItemSet<T extends Item> implements Iterable<T>{
     }
 
     @Override
-    public Iterator<T> iterator() {
+    public Iterator<Item> iterator() {
         return itemMap.values().iterator();
     }
 
-    public Collection<T> getItems() {
+    public Collection<Item> getItems() {
         return itemMap.values();
     }
 }
