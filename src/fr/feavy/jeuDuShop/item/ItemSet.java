@@ -57,6 +57,10 @@ public class ItemSet implements Iterable<Item>{
         return true;
     }
 
+    public Optional<Item> getItem(ItemType itemType) {
+        return Optional.ofNullable(itemMap.get(itemType));
+    }
+
     @Override
     public String toString() {
         StringBuilder rep = new StringBuilder();

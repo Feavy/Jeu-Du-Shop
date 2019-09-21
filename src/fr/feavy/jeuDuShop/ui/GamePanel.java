@@ -1,5 +1,7 @@
 package fr.feavy.jeuDuShop.ui;
 
+import fr.feavy.jeuDuShop.JeuDuShop;
+import fr.feavy.jeuDuShop.player.Money;
 import fr.feavy.jeuDuShop.ui.scene.InventoryScene;
 import fr.feavy.jeuDuShop.ui.scene.craft.CraftScene;
 import fr.feavy.jeuDuShop.ui.scene.loot.LootScene;
@@ -29,6 +31,8 @@ public class GamePanel extends JPanel {
 
         inventoryButton.addActionListener(e -> setNewScene(new InventoryScene()));
         northPanel.add(inventoryButton, BorderLayout.EAST);
+
+        northPanel.add(new JLabel(" Argent : "+new Money(0).toString()), BorderLayout.WEST);
         add(northPanel, BorderLayout.NORTH);
 
         JPanel southPanel = new JPanel(new GridLayout(1, 3));

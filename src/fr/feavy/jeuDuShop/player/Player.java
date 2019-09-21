@@ -5,15 +5,15 @@ import fr.feavy.jeuDuShop.craft.CraftManager;
 import fr.feavy.jeuDuShop.event.*;
 import fr.feavy.jeuDuShop.item.Item;
 import fr.feavy.jeuDuShop.item.ItemSet;
+import fr.feavy.jeuDuShop.item.ItemType;
 import fr.feavy.jeuDuShop.item.SellingItem;
 import fr.feavy.jeuDuShop.listener.EventListener;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 public class Player implements EventListener {
+    private final Money money = new Money(0);
+
     private final ItemSet inventory = new ItemSet();
     private final List<SellingItem> sellingItems = new ArrayList();
 
@@ -29,6 +29,10 @@ public class Player implements EventListener {
         inventory.addItems(items);
     }
 
+    public void removeItem(Item item) {
+        inventory.removeItem(item);
+    }
+
     public void removeItems(ItemSet items) {
         inventory.removeItems(items);
     }
@@ -39,6 +43,13 @@ public class Player implements EventListener {
 
     public void removeSellingItem(SellingItem sellingItem) {
         sellingItems.remove(sellingItem);
+    }
+
+    public int getItemAmount(ItemType type) {
+        Optional<Item> item = inventory.getItem(type);
+        if(!item.isPresent())
+            return 0;
+        return item.get().getAmount();
     }
 
     public Collection<Item> getItems() {
@@ -55,6 +66,10 @@ public class Player implements EventListener {
 
     public boolean canRealize(Craft craft) {
         return craft.isRealizable(inventory);
+    }
+
+    public Money getMoney() {
+        return money;
     }
 
     @Override

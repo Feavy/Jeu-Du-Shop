@@ -7,27 +7,36 @@ import fr.feavy.jeuDuShop.item.Item;
 import fr.feavy.jeuDuShop.item.ItemType;
 import fr.feavy.jeuDuShop.item.SellingItem;
 import fr.feavy.jeuDuShop.listener.EventListener;
+import fr.feavy.jeuDuShop.player.Player;
 import fr.feavy.jeuDuShop.ui.StyledButton;
 import fr.feavy.jeuDuShop.ui.scene.Scene;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class ShopScene extends Scene {
+    private ComboBoxModel<ItemType> itemTypesModel;
+    private JComboBox itemTypesComboBox;
+    private JSpinner amountSpinner;
+    private JSpinner priceSpinner;
+
+    private JPanel sellingItemsPanel;
 
     public ShopScene() {
         super("Boutique", new BorderLayout());
 
-        JScrollPane scrollPane = new JScrollPane();
-        JPanel sellingItemsPanel = new JPanel();
-        add(scrollPane, BorderLayout.CENTER);
-        
+        sellingItemsPanel = new JPanel();
+        sellingItemsPanel.setLayout(new GridLayout(5, 1));
+        JScrollPane scrollPane = new JScrollPane(sellingItemsPanel);
+
         for(SellingItem item : JeuDuShop.get().getPlayer().getSellingItems())
             sellingItemsPanel.add(new ShopItem(item));
-        JeuDuShop.get().getPlayer().getSellingItems();
+
+        add(scrollPane, BorderLayout.CENTER);
 
         JPanel southPanel = new JPanel(new BorderLayout());
         add(southPanel, BorderLayout.SOUTH);
@@ -36,22 +45,30 @@ public class ShopScene extends Scene {
         JPanel sellPanel = new JPanel();
         southPanel.add(sellPanel, BorderLayout.CENTER);
 
-        //sellPanel.add(new JLabel("Objet : "));
-        JSpinner jSpinner = new JSpinner(new SpinnerNumberModel(1, 0, 1000, 1));
-        jSpinner.setMaximumSize(new Dimension(20, 20));
-        jSpinner.setPreferredSize(new Dimension(40, 20));
-        sellPanel.add(jSpinner);
+        amountSpinner = new JSpinner(new SpinnerNumberModel(1, 0, 1000, 1));
+        amountSpinner.setPreferredSize(new Dimension(40, 20));
+
+        sellPanel.add(amountSpinner);
         sellPanel.add(new JLabel(" x "));
         List<ItemType> itemTypes = JeuDuShop.get().getPlayer().getItems().stream().map(item -> item.getType()).collect(Collectors.toList());
-        sellPanel.add(new JComboBox<ItemType>(itemTypes.toArray(new ItemType[0])));
+        itemTypesModel = new DefaultComboBoxModel<>(itemTypes.toArray(new ItemType[0]));
+        itemTypesComboBox = new JComboBox<ItemType>(itemTypesModel);
+        itemTypesComboBox.setPrototypeDisplayValue(ItemType.WOOD_PLANKS);
+        itemTypesComboBox.addActionListener(e -> onNewItemTypeSelected((ItemType) itemTypesComboBox.getSelectedItem()));
+        sellPanel.add(itemTypesComboBox);
         sellPanel.add(new JLabel("Prix : "));
 
-        JSpinner jSpinner2 = new JSpinner(new SpinnerNumberModel(1, 0, 1000, 1));
-        jSpinner2.setMaximumSize(new Dimension(20, 20));
-        jSpinner2.setPreferredSize(new Dimension(60, 20));
+        priceSpinner = new JSpinner(new SpinnerNumberModel(0, 0, 1000, 1));
+        priceSpinner.setPreferredSize(new Dimension(60, 20));
 
-        sellPanel.add(jSpinner2);
-        sellPanel.add(new StyledButton("Vendre"));
+        sellPanel.add(priceSpinner);
+
+        StyledButton buyButton = new StyledButton(">").setPadding(3, 7, 3, 7);
+        buyButton.addActionListener(e -> onBuyButtonClicked());
+        sellPanel.add(buyButton);
+
+        if(itemTypes.size() > 0)
+            onNewItemTypeSelected(itemTypes.get(0));
     }
 
     @Override
@@ -62,5 +79,45 @@ public class ShopScene extends Scene {
     @Override
     public void onDestroy() {
 
+    }
+
+    public void updateItems() {
+        List<ItemType> itemTypes = JeuDuShop.get().getPlayer().getItems().stream().map(item -> item.getType()).collect(Collectors.toList());
+        itemTypesModel = new DefaultComboBoxModel<>(itemTypes.toArray(new ItemType[0]));
+        itemTypesComboBox.setModel(itemTypesModel);
+
+        itemTypesComboBox.repaint();
+        itemTypesComboBox.revalidate();
+
+        if(itemTypes.size() > 0)
+            onNewItemTypeSelected(itemTypes.get(0));
+
+        sellingItemsPanel.removeAll();
+        for(SellingItem item : JeuDuShop.get().getPlayer().getSellingItems())
+            sellingItemsPanel.add(new ShopItem(item));
+
+        sellingItemsPanel.repaint();
+        sellingItemsPanel.revalidate();
+    }
+
+    public void onNewItemTypeSelected(ItemType itemType) {
+        int maxQuantity = JeuDuShop.get().getPlayer().getItemAmount(itemType);
+
+        amountSpinner.setModel(new SpinnerNumberModel(1, 1, maxQuantity, 1));
+    }
+
+    public void onBuyButtonClicked() {
+        if(itemTypesComboBox.getSelectedItem() == null)
+            return;
+
+        SellingItem sellingItem = new SellingItem((ItemType) itemTypesComboBox.getSelectedItem(),
+                                                  (int)amountSpinner.getValue(),
+                                                  (int)priceSpinner.getValue());
+
+        Player player = JeuDuShop.get().getPlayer();
+        player.removeItem(sellingItem.getItem());
+        player.addSellingItem(sellingItem);
+
+        updateItems();
     }
 }

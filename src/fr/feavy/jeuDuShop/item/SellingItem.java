@@ -9,6 +9,11 @@ public class SellingItem {
         this.item = item;
         this.price = price;
         this.remainingTimeBeforeSell = item.getDefaultSellPrice()/5 + price-item.getDefaultSellPrice();
+        System.out.println("time before sell = "+this.remainingTimeBeforeSell);
+    }
+
+    public SellingItem(ItemType type, int amount, int price) {
+        this(new Item(type, amount), price);
     }
 
     public Item getItem() {
@@ -24,5 +29,10 @@ public class SellingItem {
             return false;
 
         return true;
+    }
+
+    @Override
+    public String toString() {
+        return item.toString()+" : "+getPrice()+" $";
     }
 }

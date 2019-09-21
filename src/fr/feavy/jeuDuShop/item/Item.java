@@ -48,6 +48,10 @@ public class Item {
         return amount == 0;
     }
 
+    public int getAmount() {
+        return amount;
+    }
+
     @Override
     public String toString() {
         if(amount <= 1)

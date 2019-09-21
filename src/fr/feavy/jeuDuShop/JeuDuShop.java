@@ -30,8 +30,8 @@ public class JeuDuShop implements EventListener {
         UIManager.put("CheckBox.background", new ColorUIResource(255, 255, 255));
 
         this.lootGenerator = new LootGenerator();
-        this.gamePanel = new GamePanel(new TitleScreenScene());
         this.player = new Player();
+        this.gamePanel = new GamePanel(new TitleScreenScene());
         new Thread(new GameRunnable()).start();
         EventManager.addEventListener(this);
     }
